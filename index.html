@@ -1,225 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Love Application for Love</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Love Application for Love</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      overflow: hidden;
-    }
-
-    /* ------------------ FLOATING LOVE BACKGROUND ------------------ */
-    .love-bg {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .love-bg span {
-      position: absolute;
-      bottom: -60px;
-      font-size: 26px;
-      opacity: 0.5;
-      animation: floatUp linear infinite;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(0);
-        opacity: 0.6;
-      }
-      to {
-        transform: translateY(-120vh);
-        opacity: 0;
-      }
-    }
-
-    .love-bg span:nth-child(1) { left: 5%; animation-duration: 10s; }
-    .love-bg span:nth-child(2) { left: 15%; animation-duration: 12s; font-size: 30px; }
-    .love-bg span:nth-child(3) { left: 25%; animation-duration: 9s; }
-    .love-bg span:nth-child(4) { left: 35%; animation-duration: 14s; font-size: 34px; }
-    .love-bg span:nth-child(5) { left: 45%; animation-duration: 11s; }
-    .love-bg span:nth-child(6) { left: 55%; animation-duration: 13s; font-size: 28px; }
-    .love-bg span:nth-child(7) { left: 65%; animation-duration: 10s; }
-    .love-bg span:nth-child(8) { left: 75%; animation-duration: 15s; font-size: 36px; }
-    .love-bg span:nth-child(9) { left: 85%; animation-duration: 12s; }
-    .love-bg span:nth-child(10){ left: 95%; animation-duration: 14s; }
-    .love-bg span:nth-child(11){ left: 20%; animation-duration: 16s; }
-    .love-bg span:nth-child(12){ left: 60%; animation-duration: 18s; }
-    .love-bg span:nth-child(13){ left: 80%; animation-duration: 20s; font-size: 38px; }
-
-    /* ------------------ CONTENT ------------------ */
-    .container {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #fff;
-      font-size: 2.2rem;
-      margin-bottom: 25px;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .card {
-      background: rgba(255,255,255,0.25);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 30px 25px;
-      width: 100%;
-      max-width: 360px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      animation: floatCard 3s ease-in-out infinite;
-    }
-
-    @keyframes floatCard {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 12px 0;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      font-size: 16px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 25px;
-      border: none;
-      background: #ff4b7d;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 15px;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #ff2f6a;
-      transform: scale(1.03);
-    }
-
-    .note {
-      margin-top: 15px;
-      color: #fff;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    .letter-section {
-  margin-top: 40px;
-  text-align: center;
-  display: none; /* show later if needed */
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  overflow:hidden;
+  min-height:100vh;
+  color:white;
 }
 
-.letter-img {
-  width: 90%;
-  max-width: 350px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  animation: fadeIn 2s ease;
+/* BACKGROUND HEARTS */
+.love-bg span{
+  position:fixed;
+  bottom:-50px;
+  animation:floatUp linear infinite;
+  opacity:.6;
+}
+@keyframes floatUp{
+  to{transform:translateY(-120vh);opacity:0}
+}
+.love-bg span:nth-child(n){
+  font-size:28px;
 }
 
-.floating-btn {
-  margin-top: 20px;
-  padding: 12px 24px;
-  border-radius: 30px;
-  border: none;
-  background: #ff4b7d;
-  color: white;
-  font-size: 16px;
-  animation: bounce 2s infinite;
-}
-    .photo-section {
-  margin-top: 30px;
-  text-align: center;
-  animation: fadeIn 2s ease;
+/* CENTER */
+.center{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  padding:20px;
 }
 
-.photo-img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 25px rgba(255,75,125,0.6);
-  animation: floatCard 3s ease-in-out infinite;
+/* CARD */
+.card{
+  background:rgba(255,255,255,.25);
+  backdrop-filter:blur(10px);
+  padding:30px;
+  border-radius:20px;
+  width:100%;
+  max-width:380px;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+  50%{transform:translateY(-10px)}
 }
 
-.cute-text {
-  margin-top: 15px;
-  font-size: 18px;
-  color: #fff;
-  text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+input,button{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:20px;
+  font-size:16px;
 }
-  </style>
+button{
+  background:#ff4b7d;
+  color:white;
+  cursor:pointer;
+}
+
+.hidden{display:none}
+
+/* LETTER */
+.letter-img{
+  width:90%;
+  max-width:350px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+/* PHOTO */
+.photo-img{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 0 30px rgba(255,75,125,.8);
+  animation:float 3s infinite;
+}
+
+/* POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+}
+.popup div{
+  background:white;
+  color:#ff4b7d;
+  padding:30px;
+  border-radius:20px;
+  font-size:18px;
+  animation:float 2s infinite;
+}
+
+/* FINAL */
+.final{
+  font-size:22px;
+  animation:float 3s infinite;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- FLOATING LOVE SYMBOLS -->
-  <div class="love-bg">
-    <span>❤️</span>
-    <span>💕</span>
-    <span>💖</span>
-    <span>💗</span>
-    <span>💓</span>
-    <span>💞</span>
-    <span>💘</span>
-    <span>❣️</span>
-    <span>💟</span>
-    <span>💝</span>
-    <span>✨</span>
-    <span>💫</span>
-    <span>🫶</span>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <div class="container">
-    <h1>Love Application for Love 💕</h1>
-
-    <div class="card">
-      <input type="text" placeholder="Enter your name">
-      <input type="password" placeholder="Enter password">
-      <button>Go to Experience Love</button>
-
-      <div class="note">
-        Only for someone very special 💖
-      </div>
-    </div>
-  </div>
-  <div class="letter-section">
-  <img src="letter.png" alt="Love Letter" class="letter-img">
-  <button class="floating-btn">Click on me 💌</button>
+<!-- BACKGROUND SYMBOLS -->
+<div class="love-bg">
+  <span style="left:5%;animation-duration:10s">❤️</span>
+  <span style="left:15%;animation-duration:12s">💕</span>
+  <span style="left:25%;animation-duration:9s">💖</span>
+  <span style="left:35%;animation-duration:14s">💗</span>
+  <span style="left:45%;animation-duration:11s">💓</span>
+  <span style="left:55%;animation-duration:13s">💞</span>
+  <span style="left:65%;animation-duration:10s">💘</span>
+  <span style="left:75%;animation-duration:15s">❣️</span>
+  <span style="left:85%;animation-duration:12s">💟</span>
+  <span style="left:95%;animation-duration:14s">💝</span>
 </div>
-  <div class="photo-section">
-  <img src="photo.jpeg" alt="Handsome Guy" class="photo-img">
-  <p class="cute-text">
-    why are you this handsome while being this hardworking 😭💖
-  </p>
+
+<!-- LOGIN PAGE -->
+<div id="login" class="center">
+  <h1>Love application for love 💕</h1>
+  <div class="card">
+    <input id="name" placeholder="Enter your name">
+    <input id="pass" type="password" placeholder="Enter password">
+    <button onclick="login()">go to experience love</button>
+  </div>
 </div>
+
+<!-- PAGE 1 -->
+<div id="page1" class="center hidden">
+  <img src="letter.png" class="letter-img">
+  <button onclick="showPhoto()">Click on me 💌</button>
+  <div id="photoBox" class="hidden">
+    <img src="photo.jpeg" class="photo-img">
+    <p>why are you this handsome while being this hardworking 😭</p>
+  </div>
+  <button id="specialBtn" class="hidden" onclick="page2()">something special is there ,click on me</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="center hidden">
+<p style="max-width:700px;font-size:18px;line-height:1.6">
+Hi Bava, U loved me even in ups and downs,I never forget ur care,love on me,
+u are very special to me, i don't know why am i loving u this much but one thing is clear…
+I am ur wife and u are my husband.
+There are lots of miscommunications between us but nothing can make us separate.
+vadileyanu le undi neeku na chetilo...
+I was starving for ur love and please understand my love tooo.
+One day the world will clap for your success,
+but I’ll remember the nights, pressure and tears.
+I believe in you — not just your results,
+but the man you are becoming.
+I love u and I miss u so much
+</p>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup hidden">
+  <div>chalu inka chadiivindi… padha oka question ki answer chepali</div>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="center hidden">
+  <div class="final">
+    🐼 <br><br>
+    <button onclick="end()">will u be my valentine</button>
+  </div>
+</div>
+
+<script>
+function login(){
+  if(name.value==="satish" && pass.value==="SlovesP"){
+    login.classList.add("hidden");
+    page1.classList.remove("hidden");
+  }else{
+    alert("Only for someone special 💖");
+  }
+}
+
+function showPhoto(){
+  photoBox.classList.remove("hidden");
+  setTimeout(()=>specialBtn.classList.remove("hidden"),5000);
+}
+
+function page2(){
+  page1.classList.add("hidden");
+  page2.classList.remove("hidden");
+  setTimeout(()=>{
+    popup.classList.remove("hidden");
+    setTimeout(()=>{
+      popup.classList.add("hidden");
+      page2.classList.add("hidden");
+      final.classList.remove("hidden");
+    },5000);
+  },120000);
+}
+
+function end(){
+  document.body.innerHTML="<div class='center'><h1>You are already my valentine my bangaram ❤️<br>Happy Valentine's Day 💕</h1></div>";
+}
+</script>
 
 </body>
 </html>
