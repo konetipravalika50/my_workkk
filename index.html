@@ -16,6 +16,7 @@ body{
 
 /* BACKGROUND HEARTS */
 .love-bg span{
+  animation-duration: 12s;
   position:fixed;
   bottom:-50px;
   animation:floatUp linear infinite;
@@ -66,7 +67,9 @@ button{
   color:white;
   cursor:pointer;
 }
-
+.popup.hidden {
+  display: none;
+}
 .hidden{display:none}
 
 /* LETTER */
@@ -182,36 +185,63 @@ I love u and I miss u so much
 </div>
 
 <script>
+const loginPage = document.getElementById("login");
+const page1 = document.getElementById("page1");
+const page2 = document.getElementById("page2");
+const popup = document.getElementById("popup");
+const finalPage = document.getElementById("final");
+
 function login(){
-  if(name.value==="satish" && pass.value==="SlovesP"){
-    login.classList.add("hidden");
+  const userName = document.getElementById("name").value.trim();
+  const password = document.getElementById("pass").value.trim();
+
+  if(userName === "satish" && password === "SlovesP"){
+    loginPage.classList.add("hidden");
     page1.classList.remove("hidden");
-  }else{
+  } else {
     alert("Only for someone special 💖");
   }
 }
 
 function showPhoto(){
-  photoBox.classList.remove("hidden");
-  setTimeout(()=>specialBtn.classList.remove("hidden"),5000);
+  document.getElementById("photoBox").classList.remove("hidden");
+
+  setTimeout(() => {
+    document.getElementById("specialBtn").classList.remove("hidden");
+  }, 5000);
 }
 
 function page2(){
   page1.classList.add("hidden");
   page2.classList.remove("hidden");
-  setTimeout(()=>{
+
+  setTimeout(() => {
     popup.classList.remove("hidden");
-    setTimeout(()=>{
+
+    setTimeout(() => {
       popup.classList.add("hidden");
       page2.classList.add("hidden");
-      final.classList.remove("hidden");
-    },5000);
-  },120000);
+      finalPage.classList.remove("hidden");
+    }, 5000);
+
+  }, 120000); // 2 minutes
 }
 
 function end(){
-  document.body.innerHTML="<div class='center'><h1>You are already my valentine my bangaram ❤️<br>Happy Valentine's Day 💕</h1></div>";
+  document.body.innerHTML = `
+    <div class="center">
+      <h2>
+        You are already my valentine my bangaram ❤️<br><br>
+        Be happy and hold ur smile everytime 😊<br><br>
+        please don't forget me and my love for u 🥹<br><br>
+        stay healthy and na meeda kopam, chiraku tagginchukooo 😌<br>
+        chinnapillani kadha…<br><br>
+        Baga chusko nannu… nenu kuda ninnu baga chusukunta 💕<br><br>
+        <b>Happy Valentine's Day my love ❤️</b>
+      </h2>
+    </div>`;
 }
+
 </script>
 
 </body>
