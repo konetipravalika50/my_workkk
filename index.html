@@ -8,28 +8,22 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 body{
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
   overflow:hidden;
   min-height:100vh;
   color:white;
 }
 
-/* BACKGROUND HEARTS */
 .love-bg span{
-  animation-duration: 12s;
   position:fixed;
-  bottom:-50px;
+  bottom:-40px;
   animation:floatUp linear infinite;
-  opacity:.6;
+  opacity:.7;
 }
 @keyframes floatUp{
   to{transform:translateY(-120vh);opacity:0}
 }
-.love-bg span:nth-child(n){
-  font-size:28px;
-}
 
-/* CENTER */
 .center{
   min-height:100vh;
   display:flex;
@@ -40,19 +34,16 @@ body{
   padding:20px;
 }
 
-/* CARD */
 .card{
   background:rgba(255,255,255,.25);
   backdrop-filter:blur(10px);
   padding:30px;
   border-radius:20px;
+  max-width:400px;
   width:100%;
-  max-width:380px;
   animation:float 3s ease-in-out infinite;
 }
-@keyframes float{
-  50%{transform:translateY(-10px)}
-}
+@keyframes float{50%{transform:translateY(-10px)}}
 
 input,button{
   width:100%;
@@ -63,34 +54,30 @@ input,button{
   font-size:16px;
 }
 button{
-  background:#ff4b7d;
+  background:#ff2f6e;
   color:white;
   cursor:pointer;
 }
-.popup.hidden {
-  display: none;
-}
+
 .hidden{display:none}
 
-/* LETTER */
 .letter-img{
   width:90%;
   max-width:350px;
   border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 
-/* PHOTO */
 .photo-img{
   width:180px;
   height:180px;
   border-radius:50%;
   object-fit:cover;
-  box-shadow:0 0 30px rgba(255,75,125,.8);
+  margin-top:15px;
+  box-shadow:0 0 30px rgba(255,255,255,.8);
   animation:float 3s infinite;
 }
 
-/* POPUP */
 .popup{
   position:fixed;
   inset:0;
@@ -102,38 +89,33 @@ button{
 }
 .popup div{
   background:white;
-  color:#ff4b7d;
+  color:#ff2f6e;
   padding:30px;
   border-radius:20px;
   font-size:18px;
-  animation:float 2s infinite;
 }
 
-/* FINAL */
 .final{
   font-size:22px;
-  animation:float 3s infinite;
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND SYMBOLS -->
 <div class="love-bg">
-  <span style="left:5%;animation-duration:10s">❤️</span>
-  <span style="left:15%;animation-duration:12s">💕</span>
-  <span style="left:25%;animation-duration:9s">💖</span>
-  <span style="left:35%;animation-duration:14s">💗</span>
-  <span style="left:45%;animation-duration:11s">💓</span>
-  <span style="left:55%;animation-duration:13s">💞</span>
-  <span style="left:65%;animation-duration:10s">💘</span>
-  <span style="left:75%;animation-duration:15s">❣️</span>
-  <span style="left:85%;animation-duration:12s">💟</span>
-  <span style="left:95%;animation-duration:14s">💝</span>
+  <span style="left:10%;animation-duration:10s">❤️</span>
+  <span style="left:20%;animation-duration:14s">💕</span>
+  <span style="left:30%;animation-duration:9s">💖</span>
+  <span style="left:40%;animation-duration:12s">💗</span>
+  <span style="left:50%;animation-duration:11s">💓</span>
+  <span style="left:60%;animation-duration:13s">💞</span>
+  <span style="left:70%;animation-duration:10s">💘</span>
+  <span style="left:80%;animation-duration:15s">❣️</span>
+  <span style="left:90%;animation-duration:12s">💝</span>
 </div>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 <div id="login" class="center">
   <h1>Love application for love 💕</h1>
   <div class="card">
@@ -147,27 +129,46 @@ button{
 <div id="page1" class="center hidden">
   <img src="letter.png" class="letter-img">
   <button onclick="showPhoto()">Click on me 💌</button>
+
   <div id="photoBox" class="hidden">
     <img src="photo.jpeg" class="photo-img">
     <p>why are you this handsome while being this hardworking 😭</p>
   </div>
-  <button id="specialBtn" class="hidden" onclick="page2()">something special is there ,click on me</button>
+
+  <button id="specialBtn" class="hidden" onclick="goPage2()">something special is there , click on me</button>
 </div>
 
 <!-- PAGE 2 -->
 <div id="page2" class="center hidden">
-<p style="max-width:700px;font-size:18px;line-height:1.6">
-Hi Bava, U loved me even in ups and downs,I never forget ur care,love on me,
-u are very special to me, i don't know why am i loving u this much but one thing is clear…
-I am ur wife and u are my husband.
-There are lots of miscommunications between us but nothing can make us separate.
-vadileyanu le undi neeku na chetilo...
-I was starving for ur love and please understand my love tooo.
-One day the world will clap for your success,
-but I’ll remember the nights, pressure and tears.
-I believe in you — not just your results,
-but the man you are becoming.
-I love u and I miss u so much
+<p style="max-width:750px;font-size:18px;line-height:1.7">
+Hi Bava,<br><br>
+
+U loved me even in ups and downs.  
+I never forget your care and love on me.  
+You are very special to me.<br><br>
+
+I don’t know why I am loving you this much,  
+but one thing is clear…  
+<strong>I am your wife and you are my husband.</strong><br><br>
+
+There are lots of miscommunications between us,  
+but nothing can make us separate.  
+Vadileyanu le… undi neeku na chetilo.<br><br>
+
+I was starving for your love.  
+Please understand my love too.<br><br>
+
+One day, you’ll achieve everything you’re working for.  
+The world will clap for your success.<br><br>
+
+But I’ll be the one who remembers  
+the nights, pressure, stress,  
+and the tears you never showed.<br><br>
+
+I believe in you — not just your results,  
+but the man you are becoming.<br><br>
+
+I love you and I miss you so much ❤️
 </p>
 </div>
 
@@ -179,69 +180,53 @@ I love u and I miss u so much
 <!-- FINAL -->
 <div id="final" class="center hidden">
   <div class="final">
-    🐼 <br><br>
+    🐼<br><br>
     <button onclick="end()">will u be my valentine</button>
   </div>
 </div>
 
 <script>
-const loginPage = document.getElementById("login");
-const page1 = document.getElementById("page1");
-const page2 = document.getElementById("page2");
-const popup = document.getElementById("popup");
-const finalPage = document.getElementById("final");
-
 function login(){
-  const userName = document.getElementById("name").value.trim();
-  const password = document.getElementById("pass").value.trim();
-
-  if(userName === "satish" && password === "SlovesP"){
-    loginPage.classList.add("hidden");
+  if(name.value==="satish" && pass.value==="SlovesP"){
+    login.classList.add("hidden");
     page1.classList.remove("hidden");
   } else {
-    alert("Only for someone special 💖");
+    alert("Only for someone special ❤️");
   }
 }
 
 function showPhoto(){
-  document.getElementById("photoBox").classList.remove("hidden");
-
-  setTimeout(() => {
-    document.getElementById("specialBtn").classList.remove("hidden");
-  }, 5000);
+  photoBox.classList.remove("hidden");
+  setTimeout(()=>specialBtn.classList.remove("hidden"),5000);
 }
 
-function page2(){
+function goPage2(){
   page1.classList.add("hidden");
   page2.classList.remove("hidden");
 
-  setTimeout(() => {
+  setTimeout(()=>{
     popup.classList.remove("hidden");
-
-    setTimeout(() => {
+    setTimeout(()=>{
       popup.classList.add("hidden");
       page2.classList.add("hidden");
-      finalPage.classList.remove("hidden");
-    }, 5000);
-
-  }, 120000); // 2 minutes
+      final.classList.remove("hidden");
+    },5000);
+  },120000);
 }
 
 function end(){
-  document.body.innerHTML = `
-    <div class="center">
-      <h2>
-        You are already my valentine my bangaram ❤️<br><br>
-        Be happy and hold ur smile everytime 😊<br><br>
-        please don't forget me and my love for u 🥹<br><br>
-        stay healthy and na meeda kopam, chiraku tagginchukooo 😌<br>
-        chinnapillani kadha…<br><br>
-        Baga chusko nannu… nenu kuda ninnu baga chusukunta 💕<br><br>
-        <b>Happy Valentine's Day my love ❤️</b>
-      </h2>
-    </div>`;
+  document.body.innerHTML=`
+  <div class="center">
+  <h2>
+  You are already my valentine my bangaram ❤️<br><br>
+  Be happy and hold your smile always 😊<br><br>
+  Please don't forget me and my love for you 🥹<br><br>
+  Stay healthy… na meeda kopam, chiraku tagginchukooo 😌<br><br>
+  Baga chusko nannu… nenu kuda ninnu baga chusukunta 💕<br><br>
+  <b>Happy Valentine’s Day my love ❤️</b>
+  </h2>
+  </div>`;
 }
-
 </script>
 
 </body>
