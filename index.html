@@ -129,6 +129,51 @@
       font-size: 14px;
       opacity: 0.9;
     }
+    .letter-section {
+  margin-top: 40px;
+  text-align: center;
+  display: none; /* show later if needed */
+}
+
+.letter-img {
+  width: 90%;
+  max-width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  animation: fadeIn 2s ease;
+}
+
+.floating-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  background: #ff4b7d;
+  color: white;
+  font-size: 16px;
+  animation: bounce 2s infinite;
+}
+    .photo-section {
+  margin-top: 30px;
+  text-align: center;
+  animation: fadeIn 2s ease;
+}
+
+.photo-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255,75,125,0.6);
+  animation: floatCard 3s ease-in-out infinite;
+}
+
+.cute-text {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
   </style>
 </head>
 
@@ -165,6 +210,16 @@
       </div>
     </div>
   </div>
+  <div class="letter-section">
+  <img src="letter.png" alt="Love Letter" class="letter-img">
+  <button class="floating-btn">Click on me 💌</button>
+</div>
+  <div class="photo-section">
+  <img src="photo.jpeg" alt="Handsome Guy" class="photo-img">
+  <p class="cute-text">
+    why are you this handsome while being this hardworking 😭💖
+  </p>
+</div>
 
 </body>
 </html>
